@@ -1,0 +1,257 @@
+*{
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsl(0, 0%, 94%);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 47px 22px;
+    width: 301px;
+    border-radius: 20px 20px 100px 20px;
+    background-color: hsl(0, 100%, 100%);
+    font-family: "Poppins", sans-serif;
+}
+
+.inputs-container{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    border-bottom: 2px solid hsl(0, 0%, 94%);
+    padding-bottom: 63px;
+    input{
+        width: 82px;
+        height: 50px;
+        border-radius: 10px;
+        border: 1px solid hsl(0, 0%, 86%);
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        text-indent: 12px;
+    }
+    input:focus{
+        outline: none;
+        border: 1px solid hsl(259, 100%, 65%);
+    }
+    .error{
+        border: 1px solid hsl(0, 100%, 67%);
+    }
+
+    input:hover{
+        cursor: pointer;
+        border: 1px solid hsl(259, 100%, 65%);
+    }
+    
+}
+
+.inputs{  
+    display: flex;
+    flex-direction: column;
+    p{
+        color: hsl(0, 1%, 44%);
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 800;
+        font-size: 12px;
+    }
+    .labelError{
+        color: hsl(0, 100%, 67%);
+    }
+}
+
+.error-msg{
+        font-size: 10px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 100;
+        font-style: italic;
+        color: hsl(0, 100%, 67%);
+        transform: translate(0, 5px);
+        text-align: center;
+    }
+
+.arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    width: 65px;
+    height: 65px;
+    background-color:  hsl(259, 100%, 65%);
+    border-radius: 50%;
+    transform: translate(0, -32.5px);
+    svg{
+        width: 25px;
+        height: 25px;
+        stroke-width: 4;
+    }
+}
+
+.arrow:hover{
+        cursor: pointer;
+        background-color: black;
+    }
+
+.age-container{
+    transform: translate(0, 1px);
+    h1{
+        line-height: 61.5px;
+        font-size: 54px;
+        font-style: italic;
+    }
+
+}
+
+.results{
+    display: flex;
+    gap: 8px;
+
+    h1:first-of-type{
+        color: hsl(259, 100%, 65%);;
+    }
+}
+
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 40px;
+    a { 
+        color: hsl(228, 45%, 44%);
+    }
+}
+
+@media (min-width: 900px){
+
+    main{
+    padding: 56px 64px 10px 56px;
+    width: 720px;
+
+    border-radius: 25px 25px 200px 25px;
+    }
+
+    .inputs-container{
+        justify-content: flex-start;
+        gap: 30px;
+        padding-bottom: 47px;
+        input{
+            width: 155px;
+            height: 68px;
+            border-radius: 8px;
+            font-size: 32px;
+            text-indent: 20px;
+        }
+    }
+
+    .inputs{  
+        p{
+            margin-bottom: 8px;
+            letter-spacing: 3px;
+            font-size: 14px;
+        }
+    }
+
+    .error-msg{
+        font-size: 14px;
+        transform: translate(0, 5px);
+    }
+
+    .arrow{
+        align-self: flex-end;
+        width: 95px;
+        height: 95px;
+        transform: translate(8px, -48px);
+        svg{
+            width: 45px;
+            height: 45px;
+            stroke-width: 2;
+        }
+    }
+
+    .age-container{
+        transform: translate(0, -45px);
+        h1{
+            line-height: 110px;
+            font-size: 102px;
+        }
+    }
+
+    .results{
+        gap: 8px;
+        margin-bottom: 4px;
+    }
+}
+
+@media (max-width: 349px){
+
+    main{
+        padding: 40px 22px;
+        width: 260px;
+        border-radius: 20px 20px 100px 20px;
+    }
+
+    .inputs-container{
+        gap: 10px;
+        input{
+            width: 70px;
+            height: 50px;
+            font-size: 18px;
+        }        
+    }
+
+    .inputs{  
+        p{
+            font-size: 10px;
+        }
+    }
+
+    .error-msg{
+            font-size: 9px;
+        }
+
+    .arrow{
+        width: 50px;
+        height: 50px;
+        background-color:  hsl(259, 100%, 65%);
+        border-radius: 50%;
+        transform: translate(0, -25px);
+        svg{
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .age-container{
+        transform: translate(15px);
+        h1{
+            line-height: 45px;
+            font-size: 40px;
+        }
+
+    }
+
+    .results{
+        display: flex;
+        gap: 8px;
+
+        h1:first-of-type{
+            color: hsl(259, 100%, 65%);;
+        }
+    }
+
+}
