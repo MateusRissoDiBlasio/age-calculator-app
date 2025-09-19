@@ -116,8 +116,12 @@ main{
     gap: 8px;
 
     h1:first-of-type{
-        color: hsl(259, 100%, 65%);;
+        color: hsl(259, 100%, 65%);
     }
+}
+
+.animation {
+    animation: outputsReveal 4s forwards;
 }
 
 
@@ -254,4 +258,20 @@ footer{
         }
     }
 
+}
+
+@keyframes outputsReveal {
+    0%{
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+
+    100%{
+        transform: translateY(0px);
+    }
 }

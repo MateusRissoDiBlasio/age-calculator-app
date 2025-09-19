@@ -7,13 +7,32 @@ var actualYear = actualDate.getFullYear();
 actualMonth = actualMonth + 1;
 
 var isValid = true;
+var isNewNumber = true;
 const thirtyDaysMonth = [4, 6, 9, 11];
 
 document.getElementById("submitt").onclick = function getDateOfBirth(){
-   
     var day = document.getElementById("day").value;
     var month = document.getElementById("month").value;
     var year = document.getElementById("year").value;
+
+    function didInputChange(){
+    
+        var day = document.getElementById("day");
+        day.addEventListener('change', function() {
+            isNewNumber = true;
+        })
+
+        var month = document.getElementById("month");
+        month.addEventListener('change', function() {
+            isNewNumber = true;
+        })
+
+        var year = document.getElementById("year");
+        year.addEventListener('change', function() {
+            isNewNumber = true;
+        })
+    }
+   
     
     function checkValidation(){  
 
@@ -125,7 +144,6 @@ document.getElementById("submitt").onclick = function getDateOfBirth(){
             dayErrorMsg.classList.add("error-msg");
             dayErrorMsg.innerHTML = "Must be a valid date";
         }
-        
 
         if ((day === 0 || (day < 1 || day > 31)) || (month === 0 || (month < 1 || month > 12)) || (year === 0 || (year < 1900 || year > actualYear)) || (day === 31 && thirtyDaysMonth.includes(month) || ((day > 28 && day <= 31) && month === 2))){
             
@@ -143,9 +161,20 @@ document.getElementById("submitt").onclick = function getDateOfBirth(){
     }
 
     checkValidation();
+    didInputChange();
 
     if(isValid === true){
-        
+
+        if(isNewNumber){
+            var yearsOutput = document.getElementById("yearsOutput");
+            yearsOutput.classList.add("animation");
+            var monthsOutput = document.getElementById("monthsOutput");
+            monthsOutput.classList.add("animation");
+            var daysOutput = document.getElementById("daysOutput");
+            daysOutput.classList.add("animation");
+            isNewNumber = false;
+        }
+
         if(year !== 0){
             var yearsOfAge = actualYear - year;
             
@@ -207,12 +236,33 @@ document.getElementById("submitt").onclick = function getDateOfBirth(){
                     }
                 }         
 
+                // var yearsOutput = document.getElementById("yearsOutput")
+                // yearsOutput.classList.add('show-text');
+                // yearsOutput = document.getElementById("yearsOutput").innerHTML = yearsOfAge;
+
+                // var monthsOutput = document.getElementById("monthsOutput");
+                // monthsOutput.classList.add('show-text');
+                // monthsOutput = document.getElementById("monthsOutput").innerHTML = months;
+
+                // var daysOutput = document.getElementById("daysOutput");
+                // daysOutput.classList.add('show-text');
+                // daysOutput = document.getElementById("daysOutput").innerHTML = days;
+
+
                 var yearsOutput = document.getElementById("yearsOutput").innerHTML = yearsOfAge;
-            
+                
                 var monthsOutput = document.getElementById("monthsOutput").innerHTML = months;
-            
+
                 var daysOutput = document.getElementById("daysOutput").innerHTML = days;
-                    
+
+                setTimeout (function remAnimation(){
+                    var yearsOutput = document.getElementById("yearsOutput");
+                    yearsOutput.classList.remove("animation");
+                    var monthsOutput = document.getElementById("monthsOutput");
+                    monthsOutput.classList.remove("animation");
+                    var daysOutput = document.getElementById("daysOutput");
+                    daysOutput.classList.remove("animation");
+                    }, 5000);
                 }
         }
 }
