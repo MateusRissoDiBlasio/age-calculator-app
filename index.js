@@ -32,7 +32,8 @@ document.getElementById("submitt").onclick = function getDateOfBirth(){
             isNewNumber = true;
         })
     }
-   
+
+    console.log(isNewNumber)
     
     function checkValidation(){  
 
@@ -107,7 +108,7 @@ document.getElementById("submitt").onclick = function getDateOfBirth(){
             const yearLabel = document.getElementById("yearLabel");    
             yearLabel.classList.remove("labelError");
         }
-       
+    
         if (year === 0){
             const yearErrorMsg = document.getElementById("yearErrorMsg");
             yearErrorMsg.classList.add("error-msg");
@@ -119,7 +120,7 @@ document.getElementById("submitt").onclick = function getDateOfBirth(){
             yearErrorMsg.classList.add("error-msg");
             yearErrorMsg.innerHTML = "Must be in the future"
         }
-       
+    
         if(year !== 0 && year > actualYear){
             const yearErrorMsg = document.getElementById("yearErrorMsg");
             yearErrorMsg.classList.add("error-msg");
@@ -173,6 +174,14 @@ document.getElementById("submitt").onclick = function getDateOfBirth(){
             var daysOutput = document.getElementById("daysOutput");
             daysOutput.classList.add("animation");
             isNewNumber = false;
+            setTimeout (function remAnimation(){
+                var yearsOutput = document.getElementById("yearsOutput");
+                yearsOutput.classList.remove("animation");
+                var monthsOutput = document.getElementById("monthsOutput");
+                monthsOutput.classList.remove("animation");
+                var daysOutput = document.getElementById("daysOutput");
+                daysOutput.classList.remove("animation");
+                }, 2100);
         }
 
         if(year !== 0){
@@ -236,33 +245,12 @@ document.getElementById("submitt").onclick = function getDateOfBirth(){
                     }
                 }         
 
-                // var yearsOutput = document.getElementById("yearsOutput")
-                // yearsOutput.classList.add('show-text');
-                // yearsOutput = document.getElementById("yearsOutput").innerHTML = yearsOfAge;
-
-                // var monthsOutput = document.getElementById("monthsOutput");
-                // monthsOutput.classList.add('show-text');
-                // monthsOutput = document.getElementById("monthsOutput").innerHTML = months;
-
-                // var daysOutput = document.getElementById("daysOutput");
-                // daysOutput.classList.add('show-text');
-                // daysOutput = document.getElementById("daysOutput").innerHTML = days;
-
-
                 var yearsOutput = document.getElementById("yearsOutput").innerHTML = yearsOfAge;
                 
                 var monthsOutput = document.getElementById("monthsOutput").innerHTML = months;
 
                 var daysOutput = document.getElementById("daysOutput").innerHTML = days;
-
-                setTimeout (function remAnimation(){
-                    var yearsOutput = document.getElementById("yearsOutput");
-                    yearsOutput.classList.remove("animation");
-                    var monthsOutput = document.getElementById("monthsOutput");
-                    monthsOutput.classList.remove("animation");
-                    var daysOutput = document.getElementById("daysOutput");
-                    daysOutput.classList.remove("animation");
-                    }, 5000);
-                }
+                        
         }
+    }
 }

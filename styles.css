@@ -121,7 +121,7 @@ main{
 }
 
 .animation {
-    animation: outputsReveal 4s forwards;
+    animation: outputsReveal 2s forwards;
 }
 
 
@@ -266,12 +266,16 @@ footer{
         transform: translateY(-25px);
     }
 
-    50% {
+    40% {
         opacity: 1;
         transform: translateY(10px);
     }
 
-    100%{
+    /* 60%{
+        
+    } */
+
+    65%{
         transform: translateY(0px);
     }
 }
