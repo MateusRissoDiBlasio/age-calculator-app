@@ -1,6 +1,7 @@
 const actualDate = new Date();
 
 var actualDayOfMonth = actualDate.getDate();
+var actualDayOfMonth = 2;
 var actualMonth = actualDate.getMonth();
 var actualYear = actualDate.getFullYear();
 
@@ -128,7 +129,7 @@ document.getElementById("submitt").onclick = function getDateOfBirth(){
 
         }
 
-        if (day === 31 && thirtyDaysMonth.includes(month) || ((day > 28 && day <= 31) && month === 2)){
+        if (day === 31 && thirtyDaysMonth.includes(month) || ((day > 28 && day <= 31) && month === 2) || ((day >= actualDayOfMonth) && (month >= actualMonth) && (year === actualYear)) || ((month > actualMonth) && (year === actualYear))){
             const day = document.getElementById("day");    
             day.classList.add("error");
             const month = document.getElementById("month");    
@@ -146,15 +147,15 @@ document.getElementById("submitt").onclick = function getDateOfBirth(){
             dayErrorMsg.innerHTML = "Must be a valid date";
         }
 
-        if ((day === 0 || (day < 1 || day > 31)) || (month === 0 || (month < 1 || month > 12)) || (year === 0 || (year < 1900 || year > actualYear)) || (day === 31 && thirtyDaysMonth.includes(month) || ((day > 28 && day <= 31) && month === 2))){
+        if ((day === 0 || (day < 1 || day > 31)) || (month === 0 || (month < 1 || month > 12)) || (year === 0 || (year < 1900 || year > actualYear)) || (day === 31 && thirtyDaysMonth.includes(month) || ((day > 28 && day <= 31) && month === 2) || ((day >= actualDayOfMonth) && (month >= actualMonth) && (year === actualYear)) || ((month > actualMonth) && (year === actualYear)))){
             
             isValid = false;
             
-            var yearsOutput = document.getElementById("yearsOutput").innerHTML = "--";
+            var yearsOutput = document.getElementById("yearsOutput").innerHTML = "- -";
             
-            var monthsOutput = document.getElementById("monthsOutput").innerHTML = "--";
+            var monthsOutput = document.getElementById("monthsOutput").innerHTML = "- -";
         
-            var daysOutput = document.getElementById("daysOutput").innerHTML = "--";
+            var daysOutput = document.getElementById("daysOutput").innerHTML = "- -";
 
         }else{
             isValid = true;
