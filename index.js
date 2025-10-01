@@ -1,7 +1,6 @@
 const actualDate = new Date();
 
 var actualDayOfMonth = actualDate.getDate();
-var actualDayOfMonth = 2;
 var actualMonth = actualDate.getMonth();
 var actualYear = actualDate.getFullYear();
 
